@@ -1,0 +1,47 @@
+<div class="container jumbotron">
+    <div class="container absolute-center">
+        <legend><h3>Add Contact</h3></legend>
+        <div class="form-group row">
+            <form (submit)="addContact()">
+                <div class="form-group">
+                    <label for="first_name">First Name</label>
+                    <input type="text" class="form-control" id="first_name" placeholder="First Name" [(ngModel)]="first_name" required [ngModelOptions]="{standalone: true}">
+                </div>
+                <div class="form-group">
+                    <label for="last_name">Last Name</label>
+                    <input type="text" class="form-control" id="last_name" placeholder="Last Name" [(ngModel)]="last_name" required [ngModelOptions]="{standalone: true}">
+                </div>
+                <div class="form-group">
+                    <label for="phone_no">First Name</label>
+                    <input type="text" class="form-control" id="phone_no" placeholder="Phone no" [(ngModel)]="phone_no" required [ngModelOptions]="{standalone: true}">
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Add" class="btn btn-success">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<hr style="color: white;">
+
+<div class="container jumbotron">
+    <div class="card-group ">
+        <legend><h3>Contacts</h3></legend>
+        <div *ngFor="let contact of contacts" class="card-deck " style="max-width: 16rem;">
+           <div class="card-body border-primary mb-3">
+                <div class=" card-title">
+                    {{contact.first_name}} {{contact.last_name}}
+                </div>
+                <div class="card-text">
+                    <em>Mob: </em> {{contact.phone_no}}
+                </div>
+                <br>
+                <div class="card-footer center">
+                    <input type="button" (click)="deleteContact(contact._id)" value="Delete" class="btn btn-danger">
+                </div>
+                <hr>
+           </div>
+        </div>
+    </div>
+</div>
